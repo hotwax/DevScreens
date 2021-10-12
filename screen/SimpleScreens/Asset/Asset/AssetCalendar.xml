@@ -20,11 +20,11 @@ along with this software (see the LICENSE.md file). If not, see
     <transition name="createEvent"><service-call name="mantle.work.EventServices.create#Event"/><default-response url="."/></transition>
 
     <transition name="eventDetail"><default-response url="."/></transition><!-- TODO add when implemented -->
-    <transition name="getCalendarEvents">
+    <!--<transition name="getCalendarEvents">
         <service-call name="mantle.work.EventServices.get#FullCalendarData" web-send-json-response="eventList"
                 in-map="context + [urlGString:(sri.buildUrl('eventDetail').url + '?workEffortId=${workEffort.workEffortId}')]"/>
         <default-response type="none"/>
-    </transition>
+    </transition>-->
 
     <actions>
         <entity-find-one entity-name="mantle.product.asset.Asset" value-field="asset"/>

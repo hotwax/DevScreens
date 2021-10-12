@@ -65,7 +65,7 @@ along with this software (see the LICENSE.md file). If not, see
     <transition name="unapplyPaymentApplication"><service-call name="mantle.account.PaymentServices.unapply#PaymentApplication"/>
         <default-response url="."/></transition>
 
-    <transition-include name="getGlAccountListPaginated" location="component://SimpleScreens/template/account/AccountTransitions.xml"/>
+<!--    <transition-include name="getGlAccountListPaginated" location="component://SimpleScreens/template/account/AccountTransitions.xml"/>-->
 
     <transition name="createContent"><service-call name="mantle.account.PaymentServices.create#PaymentContent"/>
         <default-response url="."/></transition>
@@ -566,7 +566,7 @@ along with this software (see the LICENSE.md file). If not, see
                 </box-body-nopad></container-box>
             </widgets></section>
 
-            <section name="GlTransactionsSection"><actions>
+            <!--<section name="GlTransactionsSection"><actions>
                 <entity-find entity-name="mantle.ledger.transaction.AcctgTrans" list="acctgTransList">
                     <econditions combine="or">
                         <econdition field-name="paymentId"/>
@@ -595,16 +595,16 @@ along with this software (see the LICENSE.md file). If not, see
                         <else><set field="curEntry.credits" from="entrySummary.amount"/></else></if>
                     <set field="curEntry.cdDiff" from="entrySummary.isDebit == 'Y' ? (curEntry.debits?:0.0) - (curEntry.credits?:0.0) : (curEntry.credits?:0.0) - (curEntry.debits?:0.0)"/>
                 </iterate>
-                <!-- might as well include all, don't exclude 0 net balance:
+                &lt;!&ndash; might as well include all, don't exclude 0 net balance:
                 <set field="glaSummaryList" from="[]"/>
                 <iterate list="glaSummaryMap.values()" entry="curEntry">
                     <if condition="curEntry.cdDiff != 0.0"><script>glaSummaryList.add(curEntry)</script></if></iterate>
-                -->
+                &ndash;&gt;
                 <set field="glaSummaryList" from="new ArrayList(glaSummaryMap.values())"/>
                 <order-map-list list="glaSummaryList"><order-by field-name="accountCode"/></order-map-list>
 
                 <set field="glAccountCodeMask" from="ec.user.getPreference('GlAccountCodeMask')"/>
-                <set field="accountCodeFormatter" from="masker(glAccountCodeMask, '0')"/><!-- will be null if no mask -->
+                <set field="accountCodeFormatter" from="masker(glAccountCodeMask, '0')"/>&lt;!&ndash; will be null if no mask &ndash;&gt;
             </actions><widgets>
                 <container-box><box-header title="GL Transactions"/><box-toolbar>
                     <link url="postPayment" text="Post Payment" condition="!acctgTransList &amp;&amp; !unpostableStatus"
@@ -649,7 +649,7 @@ along with this software (see the LICENSE.md file). If not, see
                             <display format="#,##0.00"/></default-field></field>
                     </form-list>
                 </box-body-nopad></container-box>
-            </widgets></section>
+            </widgets></section>-->
 
             <section name="ContentSection"><actions>
                 <entity-find entity-name="mantle.account.payment.PaymentContent" list="contentList">

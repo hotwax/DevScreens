@@ -22,7 +22,7 @@ along with this software (see the LICENSE.md file). If not, see
     <transition name="editTransaction"><default-response url="//${appRoot}/Accounting/Transaction/EditTransaction"/></transition>
     <transition name="findTransactionEntry"><default-response url="//${appRoot}/Accounting/Transaction/FindTransactionEntry"/></transition>
 
-    <transition name="createPaymentMethodTrans"><service-call name="mantle.account.ReconciliationServices.create#PaymentMethodTrans"/>
+    <!--<transition name="createPaymentMethodTrans"><service-call name="mantle.account.ReconciliationServices.create#PaymentMethodTrans"/>
         <default-response url="."/></transition>
     <transition name="updatePaymentMethodTrans"><service-call name="mantle.account.ReconciliationServices.update#PaymentMethodTrans"/>
         <default-response url="."/></transition>
@@ -35,12 +35,12 @@ along with this software (see the LICENSE.md file). If not, see
         <default-response url="." parameter-map="ec.web.requestParameters + [fitId:null, submitButton:null]"/></transition>
     <transition name="noReconcile"><service-call name="mantle.account.ReconciliationServices.noReconcile#PaymentMethodTrans"/>
         <default-response url="." parameter-map="ec.web.requestParameters + [fitId:null, moquiFormName:null, submitButton:null]"/></transition>
-
-    <transition name="uploadOfxVersion1"><service-call name="mantle.account.OfxServices.upload#OfxVersion1"/>
+-->
+    <!--<transition name="uploadOfxVersion1"><service-call name="mantle.account.OfxServices.upload#OfxVersion1"/>
         <default-response url="."/></transition>
     <transition name="uploadBaiVersion2"><service-call name="mantle.account.BaiServices.upload#BaiVersion2"/>
         <default-response url="."/></transition>
-
+-->
     <actions>
         <!-- 'paymentMethod' from PaymentMethod.xml always-actions -->
 
@@ -133,14 +133,14 @@ along with this software (see the LICENSE.md file). If not, see
                             <field-map field-name="partyId" from="payment.toPartyId"/></entity-find-one>
                     </if>
                 </if>
-                <if condition="acctgTransId">
+                <!--<if condition="acctgTransId">
                     <entity-find-one entity-name="mantle.ledger.transaction.AcctgTrans" value-field="acctgTrans"/>
                     <entity-find-one entity-name="mantle.ledger.transaction.AcctgTransEntry" value-field="acctgTransEntry"/>
                     <if condition="acctgTrans.otherPartyId != paymentMethod.ownerPartyId">
                         <entity-find-one entity-name="mantle.party.PartyDetail" value-field="atxOtherParty">
                             <field-map field-name="partyId" from="acctgTrans.otherPartyId"/></entity-find-one>
                     </if>
-                </if>
+                </if>-->
             </row-actions>
             <hidden-parameters>
                 <parameter name="partyId"/>

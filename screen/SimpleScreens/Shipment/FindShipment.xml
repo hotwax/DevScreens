@@ -160,11 +160,11 @@ along with this software (see the LICENSE.md file). If not, see
                 </header-field>
                 <default-field container-style="text-strong"><display-entity entity-name="moqui.basic.StatusItem"/></default-field>
             </field>
-            <field name="shipWorkEffortId">
+            <!--<field name="shipWorkEffortId">
                 <header-field title="Picklist" show-order-by="true"><text-find size="15" hide-options="true"/></header-field>
                 <default-field><link url="picklistDetail" text="${shipWorkEffortId}" link-type="anchor"
                         parameter-map="[workEffortId:shipWorkEffortId]" condition="shipWorkEffortId"/></default-field>
-            </field>
+            </field>-->
 
             <field name="findProductId"><header-field title="Product">
                 <drop-down allow-multiple="true"><dynamic-options transition="getProductList" server-search="true" min-length="0"/></drop-down>
@@ -285,7 +285,7 @@ along with this software (see the LICENSE.md file). If not, see
             <form-list-column><field-ref name="shipmentId"/><field-ref name="shipmentMethodEnumId"/>
                 <field-ref name="shipmentTypeEnumId"/></form-list-column>
             <form-list-column><field-ref name="entryDate"/><field-ref name="statusId"/></form-list-column>
-            <form-list-column><field-ref name="priority"/><field-ref name="shipWorkEffortId"/></form-list-column>
+            <!--<form-list-column><field-ref name="priority"/><field-ref name="shipWorkEffortId"/></form-list-column>-->
             <form-list-column><field-ref name="originFacilityId"/><field-ref name="destinationFacilityId"/><field-ref name="productStoreId"/></form-list-column>
             <form-list-column><field-ref name="fromPartyId"/><field-ref name="toPartyId"/><field-ref name="handlingInstructions"/></form-list-column>
             <form-list-column><field-ref name="otherPartyOrderId"/><field-ref name="orderIds"/><field-ref name="trackingCodes"/></form-list-column>

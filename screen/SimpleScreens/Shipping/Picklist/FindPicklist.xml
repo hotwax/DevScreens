@@ -67,22 +67,22 @@ along with this software (see the LICENSE.md file). If not, see
         </container>
 
         <form-list name="PicklistList" list="picklistList" skip-form="true" header-dialog="true" select-columns="true" saved-finds="true">
-            <entity-find entity-name="mantle.work.effort.WorkEffortShipmentLoadFind" list="picklistList" use-clone="true">
+            <!--<entity-find entity-name="mantle.work.effort.WorkEffortShipmentLoadFind" list="picklistList" use-clone="true">
                 <search-form-inputs default-order-by="estimatedStartDate">
                     <default-parameters statusId="WeInPlanning,WeApproved,WeInProgress,WeOnHold" statusId_op="in"/></search-form-inputs>
                 <econdition field-name="purposeEnumId" value="WepShipmentShip"/>
-                <!-- NOTE: select facilityOwnerPartyId for user org filtering -->
+                &lt;!&ndash; NOTE: select facilityOwnerPartyId for user org filtering &ndash;&gt;
                 <select-field field-name="workEffortName,facilityOwnerPartyId"/>
-            </entity-find>
+            </entity-find>-->
             <row-actions>
-                <entity-find entity-name="mantle.work.effort.WorkEffortAndPartyDetail" list="weapdList">
+                <!--<entity-find entity-name="mantle.work.effort.WorkEffortAndPartyDetail" list="weapdList">
                     <date-filter/><econdition field-name="workEffortId"/><order-by field-name="firstName,organizationName"/></entity-find>
                 <entity-find entity-name="mantle.work.effort.WorkEffortAssetAndAssign" list="assetList" use-clone="true">
-                    <date-filter/><econdition field-name="workEffortId"/><order-by field-name="assetName"/></entity-find>
-                <entity-find entity-name="mantle.shipment.Shipment" list="shipmentList" use-clone="true">
+                    <date-filter/><econdition field-name="workEffortId"/><order-by field-name="assetName"/></entity-find>-->
+                <!--<entity-find entity-name="mantle.shipment.Shipment" list="shipmentList" use-clone="true">
                     <econdition field-name="shipWorkEffortId" from="workEffortId"/>
                     <order-by field-name="shipmentId"/>
-                </entity-find>
+                </entity-find>-->
             </row-actions>
 
             <field name="statusId">
@@ -97,10 +97,10 @@ along with this software (see the LICENSE.md file). If not, see
                 <default-field><display/></default-field>
             </field>
 
-            <field name="workEffortId">
+            <!--<field name="workEffortId">
                 <header-field title="Picklist" show-order-by="true"><text-find size="10" hide-options="true"/></header-field>
                 <default-field><link url="picklistDetail" text="WorkEffortNameTemplate" link-type="anchor"/></default-field>
-            </field>
+            </field>-->
             <field name="facilityId">
                 <header-field title="Facility" show-order-by="true"><drop-down allow-empty="true">
                     <dynamic-options transition="getFacilityList" server-search="true" min-length="0"
@@ -161,7 +161,7 @@ along with this software (see the LICENSE.md file). If not, see
             <field name="submitButton"><header-field title="Find"><submit/></header-field>
                 <default-field><display text=" "/></default-field></field>
 
-            <form-list-column><field-ref name="workEffortId"/><field-ref name="estimatedStartDate"/></form-list-column>
+            <!--<form-list-column><field-ref name="workEffortId"/><field-ref name="estimatedStartDate"/></form-list-column>-->
             <form-list-column><field-ref name="statusId"/><field-ref name="facilityId"/></form-list-column>
             <form-list-column><field-ref name="productStoreId"/><field-ref name="ownerPartyId"/></form-list-column>
             <form-list-column><field-ref name="partyList"/></form-list-column>

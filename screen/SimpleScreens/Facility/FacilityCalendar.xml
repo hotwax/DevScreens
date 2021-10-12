@@ -18,11 +18,11 @@ along with this software (see the LICENSE.md file). If not, see
     <parameter name="facilityId" required="true"/>
 
     <transition name="eventDetail"><default-response url="."/></transition><!-- TODO add when implemented -->
-    <transition name="getCalendarEvents">
+    <!--<transition name="getCalendarEvents">
         <service-call name="mantle.work.EventServices.get#FullCalendarData" web-send-json-response="eventList"
                 in-map="context + [urlGString:(sri.buildUrl('eventDetail').url + '?workEffortId=${workEffort.workEffortId}')]"/>
         <default-response type="none"/>
-    </transition>
+    </transition>-->
 
     <actions>
         <entity-find-one entity-name="mantle.facility.Facility" value-field="facility"/>

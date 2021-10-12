@@ -8,10 +8,9 @@
         <screen location="component://webroot/screen/webroot/apps.xml">
             <subscreens-item name="my" menu-title="My Account" menu-index="90"
                     location="component://SimpleScreens/screen/MyAccount.xml"/>
-            <!-- Not needed generally, but here commented for convenience:
+<!--             Not needed generally, but here commented for convenience:-->
             <subscreens-item name="SimpleScreens" menu-title="Simple Screens" menu-index="95"
                     location="component://SimpleScreens/screen/SimpleScreens.xml"/>
-            -->
         </screen>
     </screen-facade>
 </moqui-conf>

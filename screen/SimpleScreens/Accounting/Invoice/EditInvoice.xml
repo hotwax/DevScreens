@@ -46,8 +46,8 @@ along with this software (see the LICENSE.md file). If not, see
     <transition name="produceEdiInvoice"><service-call name="mantle.edi.account.X12InvoiceServices.produce#Invoice"/><default-response url="."/></transition> -->
 
     <transition-include name="getProductList" location="component://SimpleScreens/template/product/ProductTransitions.xml"/>
-    <transition-include name="getGlAccountListPaginated" location="component://SimpleScreens/template/account/AccountTransitions.xml"/>
-    <transition-include name="getItemTypeGlAccount" location="component://SimpleScreens/template/account/AccountTransitions.xml"/>
+<!--    <transition-include name="getGlAccountListPaginated" location="component://SimpleScreens/template/account/AccountTransitions.xml"/>-->
+<!--    <transition-include name="getItemTypeGlAccount" location="component://SimpleScreens/template/account/AccountTransitions.xml"/>-->
 
     <transition name="createCreditMemo"><service-call name="mantle.account.InvoiceServices.create#InvoiceCreditMemo"/>
         <default-response url="."/></transition>
@@ -135,7 +135,7 @@ along with this software (see the LICENSE.md file). If not, see
                                 <dynamic-options transition="getProductList" server-search="true" min-length="0"/>
                             </drop-down></default-field></field>
 
-                            <field name="typeGlAccount"><default-field title="Default GL Account">
+                            <!--<field name="typeGlAccount"><default-field title="Default GL Account">
                                 <display dynamic-transition="getItemTypeGlAccount" also-hidden="false" depends-optional="true"
                                         parameter-map="[organizationPartyId:organizationPartyId, direction:(isPayableInvoice ? 'I' : 'O')]">
                                     <depends-on field="itemTypeEnumId"/><depends-on field="productId"/></display>
@@ -143,7 +143,7 @@ along with this software (see the LICENSE.md file). If not, see
                             <field name="overrideGlAccountId"><default-field title="Override GL Account"><drop-down allow-empty="true">
                                 <dynamic-options transition="getGlAccountListPaginated" server-search="true" min-length="0"/></drop-down></default-field></field>
 
-                            <field name="submitButton"><default-field title="Add Adjustment Item"><submit/></default-field></field>
+                            <field name="submitButton"><default-field title="Add Adjustment Item"><submit/></default-field></field>-->
                         </form-single>
                     </container-dialog>
                 </widgets></section>
@@ -278,13 +278,13 @@ along with this software (see the LICENSE.md file). If not, see
                 <field name="invoiceTotal"><default-field title="Total"><display currency-unit-field="invoice.currencyUomId"/></default-field></field>
                 <field name="dueDate"><default-field><date-time type="date"/></default-field></field>
                 <field name="settlementTermId"><default-field title="Settlement Term">
-                    <drop-down allow-empty="true">
+                    <!--<drop-down allow-empty="true">
                         <entity-options key="${settlementTermId}" text="${description}">
                             <entity-find entity-name="mantle.account.invoice.SettlementTerm">
                                 <order-by field-name="description"/>
                             </entity-find>
                         </entity-options>
-                    </drop-down>
+                    </drop-down>-->
                 </default-field></field>
                 <field name="description"><default-field><text-line size="60"/></default-field></field>
                 <field name="invoiceMessage"><default-field><text-area cols="60" rows="3"/></default-field></field>
@@ -443,14 +443,14 @@ along with this software (see the LICENSE.md file). If not, see
                             </entity-options></drop-down>
                         </default-field></field>
 
-                        <field name="typeGlAccount"><default-field title="Default GL Account">
+                        <!--<field name="typeGlAccount"><default-field title="Default GL Account">
                             <display dynamic-transition="getItemTypeGlAccount" also-hidden="false" depends-optional="true"
                                     parameter-map="[organizationPartyId:organizationPartyId, direction:(isPayableInvoice ? 'I' : 'O')]">
                                 <depends-on field="itemTypeEnumId"/><depends-on field="productId"/></display>
-                        </default-field></field>
-                        <field name="overrideGlAccountId"><default-field title="Override GL Account"><drop-down allow-empty="true">
+                        </default-field></field>-->
+                        <!--<field name="overrideGlAccountId"><default-field title="Override GL Account"><drop-down allow-empty="true">
                             <dynamic-options transition="getGlAccountListPaginated" server-search="true" min-length="0"/></drop-down></default-field></field>
-
+-->
                         <field name="submitButton"><default-field title="Record Credit Memo"><submit/></default-field></field>
                     </form-single>
                 </container-dialog>
@@ -600,7 +600,7 @@ along with this software (see the LICENSE.md file). If not, see
                 </box-body-nopad></container-box>
             </widgets></section>
 
-            <section name="GlTransactionsSection"><actions>
+            <!--<section name="GlTransactionsSection"><actions>
                 <entity-find entity-name="mantle.ledger.transaction.AcctgTrans" list="acctgTransList">
                     <econditions combine="or">
                         <econdition field-name="invoiceId"/>
@@ -629,16 +629,16 @@ along with this software (see the LICENSE.md file). If not, see
                         <else><set field="curEntry.credits" from="entrySummary.amount"/></else></if>
                     <set field="curEntry.cdDiff" from="entrySummary.isDebit == 'Y' ? (curEntry.debits?:0.0) - (curEntry.credits?:0.0) : (curEntry.credits?:0.0) - (curEntry.debits?:0.0)"/>
                 </iterate>
-                <!-- might as well include all, don't exclude 0 net balance:
+                &lt;!&ndash; might as well include all, don't exclude 0 net balance:
                 <set field="glaSummaryList" from="[]"/>
                 <iterate list="glaSummaryMap.values()" entry="curEntry">
                     <if condition="curEntry.cdDiff != 0.0"><script>glaSummaryList.add(curEntry)</script></if></iterate>
-                -->
+                &ndash;&gt;
                 <set field="glaSummaryList" from="new ArrayList(glaSummaryMap.values())"/>
                 <order-map-list list="glaSummaryList"><order-by field-name="accountCode"/></order-map-list>
 
                 <set field="glAccountCodeMask" from="ec.user.getPreference('GlAccountCodeMask')"/>
-                <set field="accountCodeFormatter" from="masker(glAccountCodeMask, '0')"/><!-- will be null if no mask -->
+                <set field="accountCodeFormatter" from="masker(glAccountCodeMask, '0')"/>&lt;!&ndash; will be null if no mask &ndash;&gt;
             </actions><widgets>
                 <container-box><box-header title="GL Transactions"/><box-toolbar>
                     <link url="postInvoice" text="Post Invoice" condition="!acctgTransList &amp;&amp; !unpostableStatus"
@@ -683,7 +683,7 @@ along with this software (see the LICENSE.md file). If not, see
                             <display format="#,##0.00"/></default-field></field>
                     </form-list>
                 </box-body-nopad></container-box>
-            </widgets></section>
+            </widgets></section>-->
         </row-col></container-row>
     </widgets>
 </screen>

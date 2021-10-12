@@ -123,10 +123,10 @@ along with this software (see the LICENSE.md file). If not, see
                 <field name="acquireShipmentId"><conditional-field title="From Shipment" condition="acquireShipmentId">
                     <link url="shipmentDetail" text="${asset.acquireShipmentId}" link-type="anchor" condition="asset.acquireShipmentId"
                             parameter-map="[shipmentId:asset.acquireShipmentId]"/></conditional-field></field>
-                <field name="acquireWorkEffortId"><conditional-field title="From Run" condition="acquireWorkEffortId">
+                <!--<field name="acquireWorkEffortId"><conditional-field title="From Run" condition="acquireWorkEffortId">
                     <link url="productionRun" text="${asset.acquireWorkEffortId}" link-type="anchor" condition="asset.acquireWorkEffortId"
                             parameter-map="[workEffortId:asset.acquireWorkEffortId]"/></conditional-field></field>
-
+-->
                 <field name="receivedDate"><default-field title="Received"><display/></default-field></field>
                 <field name="acquiredDate"><default-field title="Acquired"><date-time/></default-field></field>
                 <field name="manufacturedDate"><default-field title="Manufactured"><date-time/></default-field></field>

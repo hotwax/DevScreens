@@ -15,8 +15,8 @@ along with this software (see the LICENSE.md file). If not, see
 <screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/xml-screen-2.1.xsd"
         default-menu-title="Picklist" default-menu-index="1">
 
-    <parameter name="workEffortId" from="workEffortId ?: workEffortId_0" required="true"/>
-    <parameter name="workEffortId_0"/>
+<!--    <parameter name="workEffortId" from="workEffortId ?: workEffortId_0" required="true"/>-->
+<!--    <parameter name="workEffortId_0"/>-->
 
     <transition name="editParty"><default-response url="//${appRoot}/Party/EditParty"/></transition>
     <transition name="shipmentDetail"><default-response url="//${appRoot}/Shipment/ShipmentDetail"/></transition>
@@ -61,7 +61,8 @@ along with this software (see the LICENSE.md file). If not, see
     <transition name="Picklist.pdf">
         <default-response url="${ec.web.getWebappRootUrl(false, null)}/fop/apps/${appRoot}/Shipping/Picklist/ShipmentLoadPick" url-type="plain">
             <parameter name="renderMode" value="xsl-fo"/><parameter name="pageNoLimit" value="true"/>
-            <parameter name="workEffortId"/><parameter name="filename" value="Picklist-${workEffortId}.pdf"/>
+<!--            <parameter name="workEffortId"/>-->
+            <parameter name="filename" value="Picklist-${workEffortId}.pdf"/>
         </default-response>
     </transition>
     <transition name="PicklistAndPackSheets.pdf">
