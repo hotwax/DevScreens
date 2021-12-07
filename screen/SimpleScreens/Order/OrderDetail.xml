@@ -980,12 +980,12 @@ along with this software (see the LICENSE.md file). If not, see
                                                 </econditions>
                                             </entity-find></entity-options>
                                     </drop-down></default-field></field>
-                                    <field name="finAccountId"><default-field title="OR Customer Account">
+                                    <!--<field name="finAccountId"><default-field title="OR Customer Account">
                                         <drop-down allow-empty="true"><entity-options key="${finAccountId}" text="FinancialAccountNameTemplate">
                                             <entity-find entity-name="mantle.account.financial.FinancialAccount">
                                                 <econdition field-name="ownerPartyId" from="orderPartInfo.orderPart.customerPartyId"/></entity-find>
                                         </entity-options></drop-down>
-                                    </default-field></field>
+                                    </default-field></field>-->
                                     <field name="paymentInstrumentEnumId"><default-field title="OR Instrument"><drop-down allow-empty="true">
                                         <entity-options key="${enumId}" text="${description}"><entity-find entity-name="moqui.basic.Enumeration">
                                             <econdition field-name="enumTypeId" value="PaymentInstrument"/>
