@@ -20,9 +20,6 @@ along with this software (see the LICENSE.md file). If not, see
     <parameter name="paymentMethodId" required="true"/>
     <parameter name="fitId" required="true"/>
 
-    <transition name="createPayment"><service-call name="mantle.account.ReconciliationServices.create#TransPayment"/>
-        <default-response url=".."/></transition>
-
     <transition-include name="searchPartyList" location="component://SimpleScreens/template/party/PartyForms.xml"/>
 
     <actions>

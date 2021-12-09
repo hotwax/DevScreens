@@ -21,10 +21,6 @@ along with this software (see the LICENSE.md file). If not, see
     <transition name="updateAssetMaintenance"><service-call name="update#mantle.product.maintenance.AssetMaintenance"/>
         <default-response url="."/></transition>
 
-    <transition name="createContent"><service-call name="mantle.product.EquipmentServices.create#AssetMaintenanceContent"/>
-        <default-response url="."/></transition>
-    <transition name="updateContent"><service-call name="mantle.product.EquipmentServices.update#AssetMaintenanceContent"/>
-        <default-response url="."/></transition>
     <transition name="downloadContent" read-only="true">
         <parameter name="contentDate"/>
         <actions>

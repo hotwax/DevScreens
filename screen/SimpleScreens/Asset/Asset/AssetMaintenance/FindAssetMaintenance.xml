@@ -17,10 +17,6 @@ along with this software (see the LICENSE.md file). If not, see
 
     <parameter name="assetId" required="true"/>
 
-    <transition name="createAssetMaintenance"><service-call name="mantle.product.EquipmentServices.create#AssetMaintenance"/>
-        <default-response url="../EditAssetMaintenance"/></transition>
-    <transition name="editAssetMaintenance"><default-response url="../EditAssetMaintenance"/></transition>
-
     <actions>
         <entity-find-one entity-name="mantle.product.asset.Asset" value-field="asset"/>
         <set field="productId" from="asset.productId"/>

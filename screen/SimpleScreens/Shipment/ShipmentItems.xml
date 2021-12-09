@@ -39,8 +39,6 @@ along with this software (see the LICENSE.md file). If not, see
         <default-response url="."/></transition>
     <transition name="packItemSource"><service-call name="mantle.shipment.ShipmentServices.pack#ShipmentItemSource"/>
         <default-response url="."/></transition>
-    <transition name="packAssemblyComponent"><service-call name="mantle.shipment.ShipmentServices.pack#ShipmentAssemblyComponent"/>
-        <default-response url="."/></transition>
     <transition name="unpackItemIssuance"><service-call name="mantle.shipment.ShipmentServices.unpack#ShipmentItemIssuance"/>
         <default-response url="."/></transition>
     <transition name="addItemToPackage"><service-call name="mantle.shipment.ShipmentServices.add#ItemToPackage"/>

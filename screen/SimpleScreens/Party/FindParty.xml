@@ -31,11 +31,6 @@ along with this software (see the LICENSE.md file). If not, see
     <transition name="createOrganization"><service-call name="mantle.party.PartyServices.create#Organization"/>
         <default-response url="../EditParty"/></transition>
 
-    <transition name="createAccount"><service-call name="mantle.sales.AccountServices.create#Account"/>
-        <default-response url="../EditParty"/></transition>
-    <transition name="createContact"><service-call name="mantle.sales.AccountServices.create#Contact"/>
-        <default-response url="../EditParty"/></transition>
-
     <transition-include name="searchPartyList" location="component://SimpleScreens/template/party/PartyForms.xml"/>
     <transition-include name="getGeoCountryStates" location="component://SimpleScreens/template/party/PartyForms.xml"/>
     <transition-include name="getPartyClassificationList" location="component://SimpleScreens/template/party/PartyTransitions.xml"/>
